@@ -39,7 +39,7 @@ namespace climb_stairs {
 
 int numWaysClimbStairs(const int n) {
     
-    int dp[n+1];
+    int * dp = new int[n+1];
     // initializing base case
     dp[0] = 1;
     dp[1] = 1;
@@ -48,7 +48,9 @@ int numWaysClimbStairs(const int n) {
         // ith stair can be reached from (i-1)th and (i-2)th stair
         dp[i] = dp[i-1]+dp[i-2];
     }
-    return dp[n];
+    int res = dp[n];
+    delete [] dp;
+    return res;
 }
 }  // namespace climb_stairs
 }  // namespace dynamic_programming
